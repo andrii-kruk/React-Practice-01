@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import {
   Card,
   Avatar,
@@ -9,19 +7,18 @@ import {
   Status,
 } from './FriendCard.styled';
 
-export const FriendCard = () => {
+export const FriendCard = ({ id, name, avatar, age, sex, status }) => {
   return (
-    <Card>
-      <Avatar
-        src="https://img.freepik.com/premium-vector/cool-man-profile-photo-icon-profile-icon-male-head-face-flat-design-vector-illustration_750364-393.jpg"
-        alt=""
-      />
+    <Card key={id}>
+      <Avatar src={avatar} alt="User photo" />
       <Wrapper>
-        <Name>Christian Bale</Name>
-        <About>Male, 38</About>
+        <Name>{name}</Name>
+        <About>
+          {sex}, {age}
+        </About>
       </Wrapper>
 
-      <Status></Status>
+      <Status status={status}></Status>
     </Card>
   );
 };

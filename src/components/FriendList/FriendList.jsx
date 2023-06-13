@@ -1,17 +1,22 @@
-import PropTypes from 'prop-types';
-
 import { FriendCard } from './FriendCard/FriendCard';
 import { FriendContainer } from './FriendList.styled';
 
-export const FriendList = () => {
+export const FriendList = ({ data }) => {
   return (
     <div>
       <FriendContainer>
-        <FriendCard />
-        <FriendCard />
-        <FriendCard />
-        <FriendCard />
-        <FriendCard />
+        {data.map(({ id, name, avatar, age, sex, status }) => {
+          return (
+            <FriendCard
+              key={id}
+              name={name}
+              avatar={avatar}
+              age={age}
+              sex={sex}
+              status={status}
+            />
+          );
+        })}
       </FriendContainer>
     </div>
   );

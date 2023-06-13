@@ -50,5 +50,15 @@ export const Status = styled.span`
   height: 15px;
   border-radius: 50%;
 
-  background-color: #008000;
+  background-color: ${props => {
+    switch (props.status) {
+      case true:
+        return '#008000';
+      case false:
+        return '#ff0000';
+
+      default:
+        return 'transparent';
+    }
+  }};
 `;
